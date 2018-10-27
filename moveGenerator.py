@@ -23,8 +23,8 @@ def generateLoseList(boardSize, winningInRow):
         winningInRow {int} -- the number of marks required to win
     '''
     assert boardSize[0] >= 1, 'xLines can not be less than 3'
-    assert boardSize[1] >= 3, 'yLines can not be less than 3'
-    assert boardSize[2] >= 3, 'zLines can not be less than 1'
+    assert boardSize[1] >= 1, 'yLines can not be less than 3'
+    assert boardSize[2] >= 1, 'zLines can not be less than 1'
     xLines = boardSize[0]
     yLines = boardSize[1]
     zLines = boardSize[2]

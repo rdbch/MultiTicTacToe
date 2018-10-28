@@ -1,6 +1,5 @@
 from copy import deepcopy
 
-
 class TwoPlayersGame:
 
     def play(self, nmoves=1000, verbose=True):

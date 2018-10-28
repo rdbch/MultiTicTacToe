@@ -12,7 +12,7 @@ class TicTacToe3D( TwoPlayersGame ):
     def __init__(self,winningInRow, boardSize, players):
         
         self.players    =   players
-        self.nplayer    =   1
+        self.nplayer    =   2
         
         self.lose_move  =   mg.generateLoseList(boardSize,winningInRow)
        
@@ -35,10 +35,11 @@ class TicTacToe3D( TwoPlayersGame ):
     
     def lose(self):
         """ Has the opponent "three in line ?" """
-        return any( [all([(self.board[c-1]== self.nopponent)
-                      for c in line])
-                      for line in self.lose_move]) 
-        
+        for move in self.lose_move:
+            if self.board[move[0]-1] == self.board[move[1]-1] == self.board[move[2]-1] == self.nopponent :
+                return True
+        return False
+
     def is_over(self):
         return (self.possible_moves() == []) or self.lose()
         
@@ -58,7 +59,7 @@ class TicTacToe3D( TwoPlayersGame ):
             print('')
         
     def scoring(self):
-        return -1000 if self.lose() else 0
+        return -100 if self.lose() else 0
     
 
 

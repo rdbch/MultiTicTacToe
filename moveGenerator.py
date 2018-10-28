@@ -32,6 +32,14 @@ def generateLoseList(boardSize, winningInRow):
     cube = generateCube(xLines, yLines, zLines)
     moves = []
 
+ #z axis
+    for j in range(yLines):
+        for k in range(zLines):
+            for i in range(xLines - winningInRow +1):
+                aux = []
+                for o in range(winningInRow):
+                    aux.append(cube[i+o][j][k])
+                moves.append(aux)
     #x axis
     for i in range(xLines):
         for j in range(yLines):
@@ -47,14 +55,7 @@ def generateLoseList(boardSize, winningInRow):
                     aux.append(cube[i][j+o][k])
                 moves.append(aux) 
 
-    #z axis
-    for j in range(yLines):
-        for k in range(zLines):
-            for i in range(xLines - winningInRow +1):
-                aux = []
-                for o in range(winningInRow):
-                    aux.append(cube[i+o][j][k])
-                moves.append(aux) 
+    
     
     #xy axis right
     for i in range(xLines):

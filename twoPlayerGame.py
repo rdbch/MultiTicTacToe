@@ -14,8 +14,9 @@ class TwoPlayersGame:
                 if(len(self.possible_moves()) == 0):
                     print("Draw! :(")
                     break
-
-                print("Player %d won!" % (self.nopponent))
+                
+                if verbose:
+                    print("Player %d won!" % (self.nopponent))
                 break
 
             move = self.player.ask_move(self)

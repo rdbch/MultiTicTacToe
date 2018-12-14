@@ -50,8 +50,7 @@ def negamax(game, depth, origDepth, scoring, alpha=+inf, beta=-inf, tt=None):
     return bestValue
 
         
-class Negamax:
-    
+class NegamaxRand:
     def __init__(self, depth, scoring=None, win_score=+inf, tt=None):
         self.scoring = scoring        
         self.depth = depth

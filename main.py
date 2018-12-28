@@ -18,22 +18,22 @@ class Strategy(Enum):
 timeNo      =   10                                  #the no of times the test should run
 player1Win  =   0                                       
 
-pl1Steps    =   3                                   #the number of steps each algo thinks in advanced
+pl1Steps    =   4                                   #the number of steps each algo thinks in advanced
 pl2Steps    =   3
 
-pl1         =   NegamaxRand(pl1Steps)               #player 1 algo
-pl2         =   Negamax(pl2Steps)                   #player 2 algo
+pl2         =   NegamaxRand(pl1Steps)               #player 1 algo
+pl1         =   Negamax(pl2Steps)                   #player 2 algo
 
 strategy    =   Strategy.NORMAL                     # scoring method
 strategyVal =   strategy.value
 
 #==================================== SAVING DATA ========================================
 strategyStr =   str(strategy).split('.')[1]
-pl1Str      =   str(pl1).split(' ')[0].split('.')[1]
-pl2Str      =   str(pl2).split(' ')[0].split('.')[3]
+pl1Str      =   str(pl1).split(' ')[0].split('.')[3]
+pl2Str      =   str(pl2).split(' ')[0].split('.')[1]
 
 saveName    = "savedSessions/" + strategyStr + "_"
-saveName    +=  pl1Str + str(pl1Steps) + "_" + pl2Str + str(pl2Steps) + ".p"
+saveName    +=  pl1Str + str(pl1Steps) + "_" + pl2Str + str(pl2Steps) + '_' + str(timeNo) + ".p"
 
 print(pl1Str, pl2Str)
 print(strategyStr)
@@ -47,8 +47,8 @@ with open(saveName, "wb") as f:
             res = 1
         else:
             res = 2
-
         pickle.dump(res,f)      
+
 
         #debug step, sows where you are
         if i % 10 == 0:

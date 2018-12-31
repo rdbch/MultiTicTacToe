@@ -2,7 +2,7 @@ from easyAI import TwoPlayersGame
 from easyAI.Player import Human_Player
 import numpy as np
 
-#==================================== GENERATE CUBE =============================================
+#==================================== GENERATE CUBE ======================================
 def generateCube(xLines, yLines, zLines):
     cube = np.zeros((xLines, yLines, zLines), dtype='int')
     index = 1
@@ -13,7 +13,7 @@ def generateCube(xLines, yLines, zLines):
                 index += 1
     return cube
 
-#==================================== GENERATE LIST =============================================
+#==================================== GENERATE LIST ======================================
 def generateLoseList(boardSize, winningInRow):
     '''
     Generate the lose move for a 3d TicTacToe game
@@ -32,7 +32,7 @@ def generateLoseList(boardSize, winningInRow):
     cube = generateCube(xLines, yLines, zLines)
     moves = []
 
- #z axis
+    #z axis
     for j in range(yLines):
         for k in range(zLines):
             for i in range(xLines - winningInRow +1):

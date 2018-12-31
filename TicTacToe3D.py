@@ -1,11 +1,20 @@
 import random
 import numpy            as  np
-import moveGenerator    as  mg
+import MoveGenerator    as  mg
 
-from twoPlayerGame         import  TwoPlayersGame
+from TwoPlayerGame         import  TwoPlayersGame
 
+from gym import Env
 
-class TicTacToe3D( TwoPlayersGame ):
+class TicTacToe3D( TwoPlayersGame, Env ):
+    '''A class that implements the rules of a tick tack toe game. It enherits the easyAI
+    class (due to my project for university) and the Env class from openAI gym.
+    
+    Arguments:
+        TwoPlayersGame {[type]} -- [description]
+        Env {[type]} -- [description]
+    '''
+
 
 #==================================== CONSTRUCTOR ========================================
     def __init__(self,winningInRow, boardSize, players, scoringType):
@@ -28,9 +37,44 @@ class TicTacToe3D( TwoPlayersGame ):
         self.boardSize  =   boardSize
         self.boardLen   =   boardSize[0] * boardSize[1] * boardSize[2]
         self.board      =   [0 for i in range(self.boardLen)]
-        self.last_move  = 0 
+        self.last_move  =   0 
 
         self.scoringType = scoringType
+        self.copy = self
+
+#=================================== RESET ===============================================
+    def reset(self):
+        '''REINITIALIZE THE CURRENT PLAYER AND THE BOARD TO the initial status
+        
+        Returns:
+            [tuple] -- return the board
+        '''
+
+        self.nplayer    =   1
+        self.board      =   [0 for i in range(self.boardLen)]
+        self.last_move  =   0 
+
+        return self.board
+
+#=================================== STEP ================================================
+    def step(self, action):
+        '''step
+        it make a move, inherited from the openai gym environment
+        
+        Arguments:
+            action {int} -- the move number to be done
+        
+        Returns:
+            board {tuple} -- the current board, after the action was done
+            score {tuple} -- the score/reward that was obtain after the move
+            is_over{bool} -- check to see if the games is finished
+        '''
+
+        self.make_move(action)
+        self.switch_player()
+        score = self.scoring()
+
+        return self.board, score, self.is_over(), {}
 
 #==================================== POSSIBLE MOVES =====================================
     def possible_moves(self):
@@ -160,10 +204,14 @@ class TicTacToe3D( TwoPlayersGame ):
                 return -1000
             return 0
 
+        #normal reinf
+        elif self.scoringType == 4:
+            if self.lose():
+                return -1
+            elif self.win():
+                return 1
+            return 0.0
+
         else:
             raise AttributeError("Scoring not corectly configured")
             
-    
-
-
-    

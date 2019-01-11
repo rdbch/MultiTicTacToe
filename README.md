@@ -22,7 +22,7 @@ This training script will train the network using the algorithms from easyAI. Th
 
 ## Disclaimer
 
-The RL agent is just a naive implementation and also my first attempt in that domain. Any constructive feedback is welcomed.
+The RL agent is just a naive implementation and also my first attempt in that domain. Any constructive feedback is appreciated.
 
 
 [keras link]: http://www.keras.io

@@ -20,6 +20,8 @@ If you want to play, configure `PlayTicTacToe.py` with the desired AI player,  a
 If you want to train the RL agent, please check : `./models/ReinforcementAgentTrainer.py.`
 This training script will train the network using the algorithms from easyAI. The agent script randmly selects the opponent, its difficulty and the number of the player.
 
+The `./benchmarkAlgos.py` offers you the possibility to run each algorithm against every other algorithm and see how they compare. The results are saved in `./savedSessions/`
+
 ## Disclaimer
 
 The RL agent is just a naive implementation and also my first attempt in that domain. Any constructive feedback is appreciated.

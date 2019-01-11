@@ -16,9 +16,8 @@ If you would like to draw the graphs you should also install matplotlib.
 
 If you want to play, configure `PlayTicTacToe.py` with the desired AI player,  and run it.
 
-If you want to train the RL agent, please check :
-
-##
+If you want to train the RL agent, please check : `./models/ReinforcementAgentTrainer.py.`
+This training script will train the network using the algorithms from easyAI. The agent script randmly selects the opponent, its difficulty and the number of the player.
 
 [keras link]: http://www.keras.io
 [easyai link]: https://github.com/Zulko/easyAI

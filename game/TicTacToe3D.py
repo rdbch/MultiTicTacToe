@@ -9,12 +9,8 @@ from gym import Env
 class TicTacToe3D( TwoPlayersGame, Env ):
     '''A class that implements the rules of a tick tack toe game. It enherits the easyAI
     class (due to my project for university) and the Env class from openAI gym.
-    
-    Arguments:
-        TwoPlayersGame {[type]} -- [description]
-        Env {[type]} -- [description]
-    '''
 
+    '''
 
 #==================================== CONSTRUCTOR ========================================
     def __init__(self,winningInRow, boardSize, players, scoringType):
@@ -142,7 +138,7 @@ class TicTacToe3D( TwoPlayersGame, Env ):
 
         return (self.possible_moves() == []) or self.lose()
         
-#==================================== SHOW =============================================
+#==================================== SHOW ===============================================
     def show(self):
         '''
             Display the current board

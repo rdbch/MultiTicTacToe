@@ -51,7 +51,7 @@ class RLAgent:
         pred    =   self.predict([[predictBoard]])
 
         # get the best possible move
-        while True:
+        for i in range(9):
             predPos = np.argmax(pred) + 1
             if predPos in game.possible_moves():
                 break

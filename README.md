@@ -4,9 +4,9 @@ This project aims to be a simple console game, where there are tested a few AI a
 
 # Dependencies
 In order to be able to run the game, you should have installed the following libraries: keras, easyAI, numpy.
-> pip install easyai
-> pip install keras
-> pip install numpy
+> pip install easyai <
+> pip install keras <
+> pip install numpy <
 
 If you would like to draw the graphs you should also install matplotlib.
 > pip3 install matplotlib
